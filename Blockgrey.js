@@ -1,23 +1,27 @@
-class Grey{
-    constructor(x, y, width, height) {
-        var options = {
-            'restitution':0.8,
-            'friction':1.0,
-            'density':1.0
-        }
-        this.body = Bodies.rectangle(x, y, 30, 50, options);
-        this.width = width;
-        this.height = height;
-        this.image = loadImage("sprites/grey.png");
-        World.add(world, this.body);
+class grey{
+  constructor( x , y ){
+
+      var options={
+          'restitution' : 0.7,
+          'friction' : 0.9,
+          'density' : 0.8
       }
-      display(){
-        var angle = this.body.angle;
-        push();
-        translate(this.body.position.x, this.body.position.y);
-        rotate(angle);
-        imageMode(CENTER);
-        image(this.image, 0, 0, this.width, this.height);
-        pop();
-      }
+      this.body = Bodies.rectangle(x, y, 50 , 70, options);
+      this.width = width;
+      this.height = height;
+      this.image = loadImage("grey.jpg");
+
+      World.add(world, this.body)
+  }
+
+  display(){
+      var pos =this.body.position;
+      var angle = this.body.angle
+      push();
+      translate(pos.x ,pos.y);
+      imageMode(CENTER);
+      image(this.image, 0 , 0 , 50 , 70);
+      pop();
+
+  }
 }

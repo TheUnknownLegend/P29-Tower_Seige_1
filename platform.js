@@ -11,10 +11,12 @@ class platform {
     }
     display(){
       var pos =this.body.position;
-      //rectMode(CENTER);
-     // fill("orange");
-      //rect(pos.x, pos.y, this.width, this.height);
+      var angle = this.body.angle
+      push();
+      translate(pos.x ,pos.y);
       imageMode(CENTER);
-      image(this.image, 0 , 0 , this.width, this.height);
+      image(this.image, 0 , 0 , 500, 500);
+      pop();
+
     }
   };
