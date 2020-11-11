@@ -27,6 +27,12 @@ var blockD21;
 var blockD31;
 var blockD41;
 
+var strings;
+var stones;
+
+var gameState = 0;
+var onSling = 0;
+var launched = 1;
 
 var backgroundImg;
 
@@ -133,7 +139,7 @@ function setup() {
 
   stones = new stone(160,100,50);
 
-  //strings = new Rope(stones,{x:100,y:100})
+  strings = new Rope(stones.body,{x:150,y:500})
 
   Engine.run(engine);
 
@@ -243,9 +249,9 @@ function draw() {
 
 
 
-/*function mouseDragged(){
+function mouseDragged(){
   if (mouseX >=0 && mouseX < 200 && gameState!=="launched"){
-      Matter.Body.setPosition(bird.body, {x: mouseX , y: mouseY});
+      Matter.Body.setPosition(stones.body, {x: mouseX , y: mouseY});
 
 
   }
@@ -253,17 +259,17 @@ function draw() {
 
 
 function mouseReleased(){
-  slingshot.fly();
+  strings.fly();
   gameState = "launched";
 }
 
 function keyPressed(){
   if(keyCode === 32 && gameState === "launched"){
 
-      Matter.Body.setPosition(bird.body,{x:200,y:50})
+      Matter.Body.setPosition(stones.body,{x:200,y:50})
 
-      slingshot.attach(bird.body);
+      strings.attach(stones.body);
 
      gameState = "onSling";
   }
-}*/
+}
